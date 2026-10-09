@@ -1,0 +1,53 @@
+### 4.1.6 / 4.9 -- Liste des programmeurs : 200 OK
+GET http://localhost:8080/programmeurs
+
+### 4.3 / 4.9 -- Un programmeur existant : 200 OK
+GET http://localhost:8080/programmeurs/1
+
+### 4.3 / 4.9 -- Un programmeur inexistant : 404 Not Found
+GET http://localhost:8080/programmeurs/9999
+
+### 4.5 / 4.9 -- Création : 201 Created + en-tête Location + programmeur (avec son id) dans le corps
+POST http://localhost:8080/programmeurs
+Content-Type: application/json
+
+{
+  "nom": "Turing",
+  "prenom": "Alan",
+  "adresse": "1944 Enigma Street",
+  "langageExpertise": "Java",
+  "livrePrefere": "Computing machinery and intelligence",
+  "salaire": 101010.1
+}
+
+### 4.6 / 4.9 -- Modification d'un programmeur existant : 200 OK (adapter l'id)
+PUT http://localhost:8080/programmeurs/1
+Content-Type: application/json
+
+{
+  "nom": "Lovelace",
+  "prenom": "Ada",
+  "adresse": "1 rue Analytical Engine",
+  "langageExpertise": "Fortran",
+  "livrePrefere": "Notes",
+  "salaire": 33333.99
+}
+
+### 4.6 / 4.9 -- Modification d'un programmeur inexistant : 404 Not Found
+PUT http://localhost:8080/programmeurs/9999
+Content-Type: application/json
+
+{
+  "nom": "Inconnu",
+  "prenom": "Inconnu",
+  "adresse": "",
+  "langageExpertise": "",
+  "livrePrefere": "",
+  "salaire": 0
+}
+
+### 4.4 / 4.9 -- Suppression d'un programmeur existant : 204 No Content (adapter l'id)
+DELETE http://localhost:8080/programmeurs/11
+
+### 4.4 / 4.9 -- Suppression d'un programmeur inexistant : 404 Not Found
+DELETE http://localhost:8080/programmeurs/9999
